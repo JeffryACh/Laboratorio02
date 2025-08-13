@@ -1,7 +1,7 @@
 /*
 * Laboratorio02
 *
-* @Authors:
+* @Authors: 
 *   - Jeffry Araya Ch.
 *   - Federick Fernadez C.
 *   - Juan J. Rojas
@@ -29,7 +29,8 @@ using namespace std;
 * - int Disponible: Cantidad Disponible del Producto
 * - bool Activo: Indica si el Producto esta activo o no
 */
-typedef struct T_Producto {
+typedef struct T_Producto 
+{
 	int Codigo;
 	char Descripcion[50];
 	float Precio;
@@ -39,7 +40,7 @@ typedef struct T_Producto {
 
 
 // Definicion de constantes
-const int Max = 100;
+const int Max = 100; 
 int Ultimo = 0;
 
 /*
@@ -47,7 +48,7 @@ int Ultimo = 0;
 * Solicita al usuario que ingrese el Codigo, Descripcion, Precio y Cantidad Disponible del Producto.
 * @param:
 *	- T_Producto& Pieza: Referencia a la estructura donde se almacenaran los datos del Producto.
-*
+* 
 * @return:
 *	+ void: No retorna ningun valor, los datos se almacenan directamente en la estructura pasada por referencia.
 */
@@ -79,20 +80,24 @@ void CapturarElemento(T_Producto& Pieza)
 * Recorre el arreglo de Productos y muestra los datos de cada Producto activo.
 * @param:
 * 	- T_Producto Inventario[Max]: Arreglo de Productos donde se almacenan los datos de los Productos.
-*
+* 
 * @return:
 * 	+ void: No retorna ningun valor, solo muestra los datos en la consola.
 */
-void Listar(T_Producto Inventario[Max]) {
+void Listar(T_Producto Inventario[Max]) 
+{
 	system("CLS");
 	int conta = 0;
 	cout << "Listado de  Productos" << endl;
-	for (int i = 0; i < Ultimo; i++) {
-		if (Inventario[i].Activo) {
+	for (int i = 0; i < Ultimo; i++) 
+	{
+		if (Inventario[i].Activo) 
+		{
 			cout << Inventario[i].Codigo << " " << Inventario[i].Descripcion << " " << Inventario[i].Precio << " "
 				<< Inventario[i].Disponible << " " << endl;
 			conta++;
-			if (conta == 7) {
+			if (conta == 7) 
+			{
 				cout << "-----------------------------------" << endl;
 				cout << "Presione cualquier tecla para continuar..." << endl;
 				system("pause");
@@ -112,7 +117,7 @@ void Listar(T_Producto Inventario[Max]) {
 * @param:
 * 	- T_Producto Inventario[Max]: Arreglo de Productos donde se almacenan los datos de los Productos.
 * 	- int Cual: Codigo del Producto a buscar.
-*
+* 
 * @return:
 * 	+ int: Retorna el indice del Producto encontrado si esta activo, o -1 si no se encuentra.
 */
@@ -142,7 +147,7 @@ int BuscarElemento(T_Producto Inventario[Max], int Cual)
 * @param:
 * 	- T_Producto Inventario[Max]: Arreglo de Productos donde se almacenan los datos de los Productos.
 * 	- T_Producto Unidad: Estructura del Producto a insertar.
-*
+* 
 * @return:
 * 	+ void: No retorna ningun valor, el Producto se agrega directamente al arreglo.
 */
@@ -158,7 +163,7 @@ void InsertarElemento(T_Producto Inventario[Max], T_Producto Unidad)
 * @param:
 *	- T_Producto Inventario[Max]: Arreglo de Productos donde se almacenan los datos de los Productos.
 * 	- int Cual: Codigo del Producto a borrar.
-*
+* 
 * @return:
 * 	+ void: No retorna ningun valor, el Producto se marca como inactivo en el arreglo.
 */
@@ -179,7 +184,8 @@ void main() {
 	T_Producto Elemento; // Estructura temporal para capturar un Producto
 	int opcion = 0; // Variable para el menu de opciones
 
-	while (opcion < 4) {
+	while (opcion < 4) 
+	{
 
 		system("cls");//limpia la pantalla
 		cout << "******Menu principal******" << endl;
@@ -189,7 +195,8 @@ void main() {
 		cout << "4. Salir " << endl;
 		cin >> opcion;//captura el numero introducido
 
-		switch (opcion) {
+		switch (opcion) 
+		{
 
 		case 1:
 			system("cls");
@@ -213,3 +220,4 @@ void main() {
 		}
 	}
 }
+
