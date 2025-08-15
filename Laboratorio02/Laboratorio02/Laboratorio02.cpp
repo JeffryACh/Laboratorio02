@@ -8,7 +8,7 @@
 *
 * Created: 12/08/2025 13:25
 *
-* Modified: 14/08/2025 21:55
+* Modified: 14/08/2025 22:05
 */
 
 #include<iostream>
@@ -234,3 +234,84 @@ void main() {
 		}
 	}
 }
+
+// Resultado:
+
+/*
+	******Menu principal******
+	1. Capturar productos de prueba
+	2. Listar Piezas
+	3. Borrar Piezas
+	4. Salir
+	1
+	...
+	insertando ... Listo, elemento insertado
+	insertando ... Listo, elemento insertado
+	insertando ... Listo, elemento insertado
+	insertando ... Listo, elemento insertado
+	Presione una tecla para continuar . . .
+
+	******Menu principal******
+	1. Capturar productos de prueba
+	2. Listar Piezas
+	3. Borrar Piezas
+	4. Salir
+	2
+
+	Listado de  Productos
+	0 Producto_0 0 0
+	1 Producto_1 1 1
+	2 Producto_2 2 2
+	3 Producto_3 3 3
+	4 Producto_4 4 4
+	5 Producto_5 5 5
+	6 Producto_6 6 6
+	-----------------------------------
+	Presione cualquier tecla para continuar...
+	Presione una tecla para continuar . . .
+	...
+	98 Producto_98 98 98
+	99 Producto_99 99 99
+	Presione una tecla para continuar . . .
+
+	******Menu principal******
+	1. Capturar productos de prueba
+	2. Listar Piezas
+	3. Borrar Piezas
+	4. Salir
+	3
+
+	Digite el codigo del Producto a Borrar
+
+	CodigoProducto:
+	0
+
+	******Menu principal******
+	1. Capturar productos de prueba
+	2. Listar Piezas
+	3. Borrar Piezas
+	4. Salir
+	2
+
+	Listado de  Productos
+	1 Producto_1 1 1
+	2 Producto_2 2 2
+	3 Producto_3 3 3
+	4 Producto_4 4 4
+	5 Producto_5 5 5
+	6 Producto_6 6 6
+	7 Producto_7 7 7
+	-----------------------------------
+	Presione cualquier tecla para continuar...
+	Presione una tecla para continuar . . .
+
+	******Menu principal******
+	1. Capturar productos de prueba
+	2. Listar Piezas
+	3. Borrar Piezas
+	4. Salir
+	4
+	Saliendo del programa...
+	C:\Users\jeffr\OneDrive - Estudiantes ITCR\Documentos\Computacion\Semestre 08\ED\Semana02\Labs\Proyecto\Laboratorio02\Laboratorio02\Debug\Laboratorio02.exe (proceso 24896) se cerró con el código 0 (0x0).
+	Presione cualquier tecla para cerrar esta ventana. . .	
+*/
