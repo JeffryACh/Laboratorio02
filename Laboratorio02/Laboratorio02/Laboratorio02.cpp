@@ -8,7 +8,7 @@
 *
 * Created: 12/08/2025 13:25
 *
-* Modified: 12/08/2025 14:55
+* Modified: 14/08/2025 21:55
 */
 
 #include<iostream>
@@ -43,35 +43,35 @@ const int Max = 100;
 int Ultimo = 0;
 
 /*
-* Esta funcion captura los datos de un Producto y los almacena en la estructura T_Producto.
-* Solicita al usuario que ingrese el Codigo, Descripcion, Precio y Cantidad Disponible del Producto.
+* Esta funcion carga automaticamente los datos de un Producto en la estructura T_Producto.
+* Utiliza valores predefinidos para el Codigo, Descripcion, Precio y Cantidad Disponible.
+* 
 * @param:
-*	- T_Producto& Pieza: Referencia a la estructura donde se almacenaran los datos del Producto.
-*
+*	- int NCodigo: Codigo del Producto a cargar.
+*	- int NDescripcion: Descripcion del Producto a cargar.
+*	- float NPrecio: Precio del Producto a cargar.
+*	- int NDisponible: Cantidad Disponible del Producto a cargar.
+*	- T_Producto &Pieza: Referencia a la estructura donde se almacenaran los datos del Producto.
+* 
 * @return:
 *	+ void: No retorna ningun valor, los datos se almacenan directamente en la estructura pasada por referencia.
 */
-void CapturarElemento(T_Producto& Pieza)
+void CreadorAutomaticoDatosProducto(int NCodigo, int NDescripcion, float NPrecio, int NDisponible, T_Producto &Pieza)
 {
-	system("CLS");
-	cout << "Captura de una Pieza" << endl;
-	cout << "" << endl;
+	cout << "insertando ... ";
+	char descrip[50];
+	char texto[20] = "Producto_";
 
-	system("CLS");
-	cout << "Captura de una Pieza" << endl;
-	cout << "" << endl;
-	cout << "CodigoProducto:";
-	cin >> Pieza.Codigo;  cout << "" << endl;
-	cout << "DescripcionProducto:";
-	cin >> Pieza.Descripcion;
-	cout << "" << endl;
-	cout << "PrecioProducto:";
-	cin >> Pieza.Precio;
-	cout << "" << endl;
-	cout << "DisponibleProducto:";
-	cin >> Pieza.Disponible;  cout << "" << endl;
+	Pieza.Codigo = NCodigo;
+
+	_itoa_s(NDescripcion, descrip, 50, 10); // Convierte el entero NDescripcion a cadena
+	strcat_s(texto, descrip); // Concatena "Producto_" con el numero convertido
+	strcpy_s(Pieza.Descripcion, 50, texto); // Copia el resultado a la descripcion del Producto
+
+	Pieza.Precio = NPrecio;
+	Pieza.Disponible = NDisponible;
 	Pieza.Activo = true;
-
+	cout << "Listo, elemento insertado" << endl;
 }
 
 /*
@@ -83,16 +83,20 @@ void CapturarElemento(T_Producto& Pieza)
 * @return:
 * 	+ void: No retorna ningun valor, solo muestra los datos en la consola.
 */
-void Listar(T_Producto Inventario[Max]) {
+void Listar(T_Producto Inventario[Max])
+{
 	system("CLS");
 	int conta = 0;
 	cout << "Listado de  Productos" << endl;
-	for (int i = 0; i < Ultimo; i++) {
-		if (Inventario[i].Activo) {
+	for (int i = 0; i < Ultimo; i++) 
+	{
+		if (Inventario[i].Activo) 
+		{
 			cout << Inventario[i].Codigo << " " << Inventario[i].Descripcion << " " << Inventario[i].Precio << " "
 				<< Inventario[i].Disponible << " " << endl;
 			conta++;
-			if (conta == 7) {
+			if (conta == 7)
+			{
 				cout << "-----------------------------------" << endl;
 				cout << "Presione cualquier tecla para continuar..." << endl;
 				system("pause");
@@ -175,26 +179,40 @@ void BorrarElemento(T_Producto Inventario[Max], int Cual)
 
 void main() {
 
-	T_Producto PiezasFerreteria[Max]; // Arreglo para almacenar los Productos
-	T_Producto Elemento; // Estructura temporal para capturar un Producto
-	int opcion = 0; // Variable para el menu de opciones
+	T_Producto PiezasFerreteria[Max];
+	T_Producto Elemento;
 
-	while (opcion < 4) {
+	int opcion = 0;
+
+	while (opcion < 4)
+	{
 
 		system("cls");//limpia la pantalla
 		cout << "******Menu principal******" << endl;
-		cout << "1. Insertar Pieza" << endl;
+		cout << "1. Capturar productos de prueba" << endl;
 		cout << "2. Listar Piezas " << endl;
 		cout << "3. Borrar Piezas " << endl;
 		cout << "4. Salir " << endl;
 		cin >> opcion;//captura el numero introducido
 
-		switch (opcion) {
-
+		/*
+		* Se va a utilizar un switch sencillo para las opciones del menu
+		* 
+		* Por ahora solo acepta opciones del 1 al 4
+		* 
+		* Se espera que el usuario no ingrese letras o caracteres especiales
+		*/
+		switch (opcion)
+		{
 		case 1:
-			system("cls");
-			CapturarElemento(Elemento);
-			InsertarElemento(PiezasFerreteria, Elemento);
+			system("cls"); // limpia la pantalla
+			Ultimo = 0;
+			for (int contador = 0; contador < Max; contador++)
+			{
+				CreadorAutomaticoDatosProducto(contador, contador, contador, contador, Elemento);
+				InsertarElemento(PiezasFerreteria, Elemento);
+			}
+			system("PAUSE"); // Pausa para que el usuario vea el mensaje antes de continuar
 			break;
 
 		case 2:
@@ -209,6 +227,9 @@ void main() {
 			cout << "CodigoProducto:" << endl;
 			cin >> CodigoEscogido;
 			BorrarElemento(PiezasFerreteria, CodigoEscogido);
+			break;
+		case 4:
+			cout << "Saliendo del programa..." << endl;
 			break;
 		}
 	}
