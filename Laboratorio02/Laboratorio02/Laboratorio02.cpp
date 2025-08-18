@@ -20,7 +20,7 @@
 
 using namespace std;
 
-/*esta es la estructura de los datos q poseen los Productos*/
+// Esta es la estructura de los datos q poseen los Productos
 /*
 * struct T_Producto
 * - int Codigo: Codigo del Producto
