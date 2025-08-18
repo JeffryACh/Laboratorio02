@@ -123,11 +123,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\ColeccionEstatica.cpp" />
-    <ClCompile Include="..\..\ColeccionEstatica_con_Archivos.cpp" />
-    <ClCompile Include="..\..\coleccionEstatica_corregido.cpp" />
-    <ClCompile Include="..\..\itoa_ejemplo.cpp" />
-    <ClCompile Include="Laboratorio02.cpp" />
     <ClCompile Include="Laboratorio02ConArchivos.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
